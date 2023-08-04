@@ -1,79 +1,166 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React native - Boilerplate app bootstrapped in Typescript
 
-# Getting Started
+A react native application with linting, husky and commitlint, Detox and REdux.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+[![React Native](https://iili.io/HYGqeKQ.png)](https://reactnative.dev/)
 
-## Step 1: Start the Metro Server
+## Tech stack
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- React Native : For Cross platform mobile app development (iOS & Android)
+- Node JS: For JS runtime environment
+- Javascript : For application development
+- Linting: eslint with commit hooks
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Packages used
 
-```bash
-# using npm
-npm start
+| Package          | Version |
+| ---------------- | ------- |
+| React            | 18.2.0      |
+| React Native     | 0.72.3  |
 
-# OR using Yarn
-yarn start
+## To commit your code to repo
+
+```
+git add .
+git commit
 ```
 
-## Step 2: Start your Application
+- It automatically stages all the local file changes, applies linting across the project folder, also does auto fixes, then will throw linting errors on the files if any.
+- Kindly resolve them and then continue the same command: yarn commit
+- Then it will ask few questions such as what type of commit it is, commmit msg, etc.
+- Then after finishing it, finally do:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```
+git push origin <branch_name>
 ```
 
-### For iOS
+## Instructions to front end engineers
 
-```bash
-# using npm
-npm run ios
+- Raise MRs to development branch, create branches like: feat/CP3-5 from "development" branch
+- If you want to make any global styling, do it at global level
+- Same for constants, URLs, strings, etc
+- Whenever you add an utility file, put it inside “utilities” folder
+- Declare variables with “Be” form verbs or with aux verbs: isEmpty, hasElements, canClose, closesWindow
+- Use camelCase for variables & methods
+- Always prefer fat arrow functional components
+- avoid underscore case for naming
+- CapitalCase for JSX, camelCase for others
+- use prettier
+- Define actions with modularity & non-replicating
+- Define entities in proper way (relevant items grouped together)
+- Avoid onSuccess() methods on UI, everything should be handled in saga and reducer, not in UI
+- Parallelize API calls whenever possible
+- For reusable UI components : modularize them & make them reusable by passing corresponding props
+- Remove unwanted / unused state variables
+- Classify components (1. Presentational/ Dumb : just get the props and render, not connected to redux state 2. Containers: connected to redux state)
+- Provide keys for iterable lists to avoid warnings
+- all the actions should be handled in reducer (request, success, failure)
+- Follow platform specific styles (fontweight : 600 for iOS, bold for Android in some places)
+- Sort the imports : library imports first, followed by user imports, styles, constants, etc
+- Implement safe area view to avoid clipping off in the notch-display type devices
+- Add documentation whenever a new SDK / package is added
+ 
+### Upgrade all dependency packages in a single shot
+- yarn yarn-upgrade-all
 
-# OR using Yarn
-yarn ios
+
+### Run Android emulator Mac:-
+
+```
+cd ~/Library/Android/sdk/emulator
+./emulator -list-avds
+./emulator -avd {AVD_NAME}
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+### Run on iOS simulator
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```
+yarn ios:dev --simulator="iPhone 8"
+yarn ios:dev --simulator="iPhone 8 Plus"
+yarn ios:dev --simulator="iPhone 11"
+```
 
-## Step 3: Modifying your App
+### Delete Cache (Xcode)
 
-Now that you have successfully run the app, let's modify it.
+```
+rm -rf "${HOME}/Library/Caches/CocoaPods"
+xcrun simctl delete unavailable
+rm -rf ~/Library/Caches
+rm -rf ~/Library/Developer/Xcode/Archives
+rm -rf ~/Library/Developer/Xcode/DerivedData
+rm -rf ~~/Library/Developer/Xcode/iOS Device Logs/
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+### Delete Device List (Xcode)
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```
+rm -rf  ~/Library/Developer/CoreSimulator/Devices/
+If there is Unable to boot device error run,
+xcrun simctl erase all
+```
 
-## Congratulations! :tada:
+### Delete Cache (Android)
 
-You've successfully run and modified your React Native App. :partying_face:
+Go to android folder
 
-### Now what?
+```
+./gradlew clean
+./gradlew cleanBuildCache
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+\
+## Installation
 
-# Troubleshooting
+This App requires [Node.js](https://nodejs.org/) v10+ to run.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+##### Download / clone the repo and install dependencies
 
-# Learn More
+```sh
+git clone git@gitlab.com:cdhl/breathefree/breathefree-app-rn.git
+cd breathefree-app-rn
+yarn
+```
 
-To learn more about React Native, take a look at the following resources:
+##### Start the development server
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```sh
+yarn resetc
+```
+
+##### Install the app first time in Android (in Dev mode)
+
+- Connect any Android device with USB
+- Enable USB debugging in the device
+- Accept to INSTALL the app when prompted during the deployment
+- This command is not needed for subsequent changes made in project
+- Whenever you include any package that impacts Android native, reinstall the app by issuing this command
+- Alternatively the same can be achieved from Android Studio IDE by clicking "Run" button after opening "Android" project in it
+- Supported Machines: Windows / Linux / Mac
+
+##### Install the app first time in iPhones (iOS) - Dev mode
+
+- Connect any iOS device with USB
+- Enable USB debugging in the device
+- Accept to INSTALL the app when prompted during the deployment
+- This command is not needed for subsequent changes made in project
+- Whenever you include any package that impacts Android native, reinstall the app by issuing this command
+- Alternatively the same can be achieved from Xcode IDE by clicking "Build" & "Run" button after opening "iOS" folder in it
+- Supported Machines: Mac only
+
+
+- For more details: https://reactnative.dev/docs/signed-apk-android
+  Note: If you run in Linux, issue ./gradlew instead of gradlew
+
+## Output file location
+
+You will find the APK file in:
+
+```bash
+~PROJECT_LOCATION\android\app\build\outputs\apk
+```
+
+## Install the released APK
+
+```bash
+adb install app.apk
+```
