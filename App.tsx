@@ -12,16 +12,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'white'
   },
 });
-console.log(Config.ENV)
 
 function App(): JSX.Element {
 
   return (
     <SafeAreaView style={[ styles.container]}>
-      <Text style={{color:'red'}}>{Config?.ENV}</Text>
+      <Text>{Config?.ENV}</Text>
     </SafeAreaView>
   );
 }
