@@ -112,20 +112,12 @@ android {
     productFlavors {
         development {
             dimension 'default'
-            minSdkVersion rootProject.ext.minSdkVersion
-            applicationId "nanban.development"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode 1
-            versionName "1.0.0"
+            applicationIdSuffix ".development"
             resValue "string", "build_config_package", "com.nanban"
         }
         production {
             dimension 'default'
-            minSdkVersion rootProject.ext.minSdkVersion
-            applicationId "nanban.production"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode 1
-            versionName "1.0.0"
+            applicationIdSuffix ""
             resValue "string", "build_config_package", "com.nanban"
         }
     }
