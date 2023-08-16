@@ -1,0 +1,13 @@
+diff --git a/node_modules/eslint-config-standard-with-typescript/lib/index.js b/node_modules/eslint-config-standard-with-typescript/lib/index.js
+index fd366a1..257c3f8 100644
+--- a/node_modules/eslint-config-standard-with-typescript/lib/index.js
++++ b/node_modules/eslint-config-standard-with-typescript/lib/index.js
+@@ -204,7 +204,7 @@ const config = {
+         '@typescript-eslint/prefer-ts-expect-error': 'error',
+         '@typescript-eslint/promise-function-async': 'error',
+         '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
+-        '@typescript-eslint/restrict-plus-operands': ['error', { checkCompoundAssignments: true }],
++        '@typescript-eslint/restrict-plus-operands': 'off',
+         '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+         '@typescript-eslint/return-await': ['error', 'always'],
+         '@typescript-eslint/strict-boolean-expressions': ['error', {
