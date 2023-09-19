@@ -1,0 +1,29 @@
+{
+    "project_info": {
+        "project_number": "547989719606",
+        "project_id": "nanban-48981",
+        "storage_bucket": "nanban-48981.appspot.com"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:547989719606:android:036c06ee1295703e7c2697",
+                "android_client_info": {
+                    "package_name": "com.nanban"
+                }
+            },
+            "oauth_client": [],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyD0VpaNHy6nnfXJDMKyIFrXNE8tW0EjV3M"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": []
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}
